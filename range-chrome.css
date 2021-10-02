@@ -1,0 +1,76 @@
+.chrome {
+    width: 128px;  
+    height: 16px;
+}
+
+.chrome input-track {
+    height: 8px;
+    border-radius: 100px;
+    background-color: #EFEFEF;
+}
+
+.chrome input-lower {
+    background-color: #0075FF;
+    border: 1px solid #3B75BA;
+    border-radius: 100px;
+}
+
+.chrome input-upper {
+    background-color: transparent;
+    border: 1px solid #B2B2B2;
+    border-radius: 100px;
+}
+
+.chrome input-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: #0075FF;
+}
+
+.chrome input-thumb:hover {
+    background-color: #005CC8;
+}
+
+.chrome:hover input-track {
+    background-color: #E5E5E5;
+}
+
+.chrome:hover input-lower {
+    border-color: #28568C;
+    background-color: #005CC8;
+}
+
+.chrome:active input-track {
+    background-color: #F5F5F5;
+}
+
+.chrome:active input-lower {
+    background-color: #3793FF;
+    border-color: #6290C6;
+}
+
+.chrome:active input-thumb {
+    background-color: #3793FF;
+}
+
+.chrome:active input-upper {
+    border-color: #C1C1C1;
+}
+
+.chrome[disabled] input-track {
+    background-color: #FAFAFA;
+}
+
+.chrome[disabled] input-thumb {
+    background-color: #CBCBCB;
+}
+
+.chrome[disabled] input-lower {
+    border-color: #B2B2B2;
+    background-color: #CBCBCB;
+}
+
+.chrome[disabled] input-upper {
+    border-color: #D3D3D3;
+}

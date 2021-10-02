@@ -1,0 +1,88 @@
+input-range {
+    /* Mandatory */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-sizing: border-box;
+    user-select: none;
+    padding: 0;
+    margin: 0;
+
+    /* Mandatory - custom */
+    width: 128px;  
+    height: 12px;
+}
+
+input-range * {
+    /* Mandatory */
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+input-track {
+    /* Mandatory */
+    display: flex;
+    width: 100%;
+    overflow: hidden;
+
+    /* Mandatory - custom*/
+    height: 100%;
+
+    /* custom */
+    background-color: #D4D4D4;
+}
+
+input-lower {
+    /* Mandatory */
+    display: block;
+    height: 100%;
+    width: 50%; /* JS action */
+
+    /* custom - here */
+}
+
+
+input-upper {
+    /* Mandatory */
+    display: block;
+    height: 100%;
+    flex-grow: 1;
+
+    /* custom - here */
+}
+
+input-thumb {
+    /* Mandatory */
+    display: block;
+    position: absolute;
+    touch-action: none;
+
+    /* Mandatory */
+    top: 50%;
+    left: 0; /* IE11 */
+    transform: translate(-50%, -50%);
+
+    /* Mandatory - custom */
+    height: 100%;
+    width: 12px;
+
+    /* custom */
+    background-color: black;
+}
+
+input-range[disabled] {
+    /* Mandatory */
+    pointer-events: none;
+}
+
+input-range[disabled] input-track {
+    /* custom */
+    background-color: #E5E5E5;
+}
+
+input-range[disabled] input-thumb{
+    /* custom */
+    background-color: #C2C2C2;
+}

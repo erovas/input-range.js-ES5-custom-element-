@@ -1,0 +1,72 @@
+.firefox {
+    width: 160px;
+    height: 20px;
+}
+
+.firefox input-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 100%;
+    border: 2px solid white;
+    background-color: #676774;
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.55);
+}
+
+.firefox input-track {
+    height: 30%;
+    background-color: #E9E9ED;
+    border-radius: 100px;
+}
+
+.firefox input-lower {
+    border: 1px solid #0250BB;
+    background-color: #0060DF;
+    border-radius: 100px;
+}
+
+.firefox:hover input-lower,
+.firefox:active input-lower {
+    background-color: #0250BB;
+    border-color: #054096;
+}
+
+.firefox input-upper {
+    border: 1px solid #8F8F9D;
+    border-radius: 100px;
+}
+
+.firefox:hover input-upper,
+.firefox:active input-upper {
+    border-color: #676774;
+}
+
+.firefox:hover input-track,
+.firefox:active input-track {
+    background-color: #D0D0D7;
+}
+
+.firefox:hover input-thumb {
+    background-color: #484851;
+}
+
+.firefox:active input-thumb {
+    background-color: #0060DF;
+}
+
+.firefox[disabled] input-track {
+    background-color: #F4F4F6;
+}
+
+.firefox[disabled] input-lower {
+    background-color: #C7C7CE;
+    border-color: #C7C7CE;
+}
+
+.firefox[disabled] input-upper {
+    border-color: #C7C7CE;
+}
+
+.firefox[disabled] input-thumb {
+    background-color: #8F8F9D;
+    box-shadow: none;
+}

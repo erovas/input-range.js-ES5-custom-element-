@@ -1,0 +1,76 @@
+.edge {
+    width: 128px;  
+    height: 16px;
+}
+
+.edge input-track {
+    height: 8px;
+    border-radius: 100px;
+    background-color: #EFEFEF;
+}
+
+.edge input-lower {
+    background-color: #767676;
+    border: 1px solid #767676;
+    border-radius: 100px;
+}
+
+.edge input-upper {
+    background-color: transparent;
+    border: 1px solid #B2B2B2;
+    border-radius: 100px;
+}
+
+.edge input-thumb {
+    height: 15px;
+    width: 15px;
+    border-radius: 100%;
+    background-color: #767676;
+}
+
+.edge input-thumb:hover {
+    background-color: #616161;
+}
+
+.edge:hover input-track {
+    background-color: #E5E5E5;
+}
+
+.edge:hover input-lower {
+    border-color: #585858;
+    background-color: #616161;
+}
+
+.edge:hover input-upper {
+    border-color: #9A9A9A;
+}
+
+.edge:active input-track {
+    background-color: #F5F5F5;
+}
+
+.edge:active input-lower {
+    background-color: #838383;
+    border-color: #838383;
+}
+
+.edge:active input-thumb {
+    background-color: #838383;
+}
+
+.edge:active input-upper {
+    border-color: #C1C1C1;
+}
+
+.edge[disabled] input-track {
+    background-color: #FAFAFA;
+}
+
+.edge[disabled] input-lower {
+    background-color: #CBCBCB;
+    border-color: #AFAFAF;
+}
+
+.edge[disabled] input-upper {
+    border-color: #D0D0D0;
+}

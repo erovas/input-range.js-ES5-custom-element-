@@ -1,0 +1,28 @@
+.iOS {
+    width: 128px;  
+    height: 16px;
+}
+
+.iOS input-track {
+    height: 5px;
+    border-radius: 100px;
+    border: 1px solid #B1B3B2;
+    background-color: #BFC1C0;
+}
+
+.iOS input-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 100%;
+    border: 1px solid black;
+    background-color: #E4E4E4;
+}
+
+.iOS[disabled] {
+    opacity: 0.3;
+}
+
+.iOS[disabled] input-track {
+    border: 1px solid #B1B3B2;
+    background-color: #BFC1C0;
+}

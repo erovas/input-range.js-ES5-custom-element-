@@ -1,0 +1,12 @@
+.opera {
+    width: 128px;  
+    height: 12px;
+}
+
+.opera:hover input-track {
+    background-color: #DEDEDE;
+}
+
+.opera:active input-thumb {
+    background-color: #509BC7;
+}

@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!--  NO permitir Zoom en movil-->
+    <!--<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, maximum-scale=1, minimum-scale=1">-->
+    <!-- SI permitir Zoom en movil-->
+    <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, minimum-scale=1">
+
+    <meta name="keywords" content="JavaScript, library, internet explorer, input, range, component, web component, customelement, edge legacy">
+    <meta name="description" content="input-range.js is a ES5 custom element, a highly stylizable component with the same functionality as the original input range">
+    <meta name="author" content="Emanuel Rojas Vasquez">
+
+    <title>input-range.js</title>
+
+    <!-- You can find it in https://github.com/erovas/Import.js -->
+    <script src="Import.js"></script>
+    
+    <script>
+
+        if(!!document.documentMode){ //IE
+            
+            //Polyfill for Event(), you can find it in https://github.com/erovas/Event-constructor-polyfill.js
+            Import.JS(' Event-constructor-polyfill');
+
+            //Polyfill for Element.closest(), you can find it in https://developer.mozilla.org/es/docs/Web/API/Element/closest
+            if (!Element.prototype.closest) {
+
+                if (!Element.prototype.matches) 
+                    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
+
+                Element.prototype.closest = function(s) {
+                    var el = this;
+
+                    do {
+                        if (el.matches(s)) 
+                            return el;
+                        
+                        el = el.parentElement || el.parentNode;
+                    } 
+                    while (el !== null && el.nodeType === 1);
+
+                    return null;
+                };
+            }
+
+        }
+
+        //IE and EDGE Legacy
+        if(!!window.StyleMedia){
+
+            //Polyfill for customElements, you can find it in https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs
+            Import.JS('https://unpkg.com/@webcomponents/custom-elements@1.5.0/custom-elements.min');
+
+            // Polyfill for isConnected - Modified from https://gist.github.com/eligrey/f109a6d0bf4efe3461201c3d7b745e8f
+            if (!('isConnected' in Node.prototype)) {
+                Object.defineProperty(Node.prototype, 'isConnected', {
+                    get: function() {
+                        return !this.ownerDocument || !(this.ownerDocument.compareDocumentPosition(this) & this.DOCUMENT_POSITION_DISCONNECTED);
+                    }
+                });
+            }
+
+        }
+
+        
+            
+        //Dependency, you can find it in https://github.com/erovas/ES5customElements.js
+        Import.JS('ES5customElements');
+        
+        //Component
+        Import.JS('input-range.min');
+        Import.CSS('input-range');
+
+        //Another styles for the component
+        Import.CSS('range-opera');
+        Import.CSS('range-firefox');
+        Import.CSS('range-chrome');
+        Import.CSS('range-edge');
+        Import.CSS('range-iOS');
+
+        // For this Demo
+        Import.CSS('normalize.min');
+        Import.CSS('index');
+    </script>
+
+</head>
+
+
+<body>
+
+    <a href="https://github.com/erovas/input-range.js">
+        <h1>input-range.js</h1>
+    </a>
+
+    <table>
+        <tr>
+            <th>Description</th>
+        </tr>
+        <tr>
+            <td>
+                input-range.js is a ES5 custom element, a highly stylizable component with the same functionality as the original input range (mimic iOS and PC behaviour), compatible with all modern browsers from IE11+.
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>Native input type="range"</th>
+        </tr>
+        <tr>
+            <td>
+                <input type="range">
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>input-range default style</th>
+        </tr>
+        <tr>
+            <td>
+                <input-range></input-range>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>input-range Firefox style</th>
+        </tr>
+        <tr>
+            <td>
+                <input-range class="firefox"></input-range>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>input-range Opera style</th>
+        </tr>
+        <tr>
+            <td>
+                <input-range class="opera"></input-range>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>input-range Chrome style</th>
+        </tr>
+        <tr>
+            <td>
+                <input-range class="chrome"></input-range>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>input-range Edge style</th>
+        </tr>
+        <tr>
+            <td>
+                <input-range class="edge"></input-range>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th>input-range iOS style</th>
+        </tr>
+        <tr>
+            <td>
+                <input-range class="iOS"></input-range>
+            </td>
+        </tr>
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="2">Events</th>
+        </tr>
+        <tr>
+            <td>input</td>
+            <td>change</td>
+        </tr>
+        <tr>
+            <td id="eInput">50</td>
+            <td id="eChange">50</td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <input-range 
+                    class="firefox"
+                    oninput="eInput.textContent= this.value"
+                    onchange="eChange.textContent= this.value"
+                    ></input-range>
+            </td>
+        </tr>
+
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="4"> Attributes </th>
+        </tr>
+        <tr>
+            <td>min</td>
+            <td>step</td>
+            <td>max</td>
+            <td>value</td>
+        </tr>
+        <tr>
+            <td id>-15</td>
+            <td id>223.75</td>
+            <td id>30.234</td>
+            <td id>100</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input-range 
+                    class="firefox" 
+                    min="-15" 
+                    max="223.75" 
+                    step="30.234"
+                    value="100"
+                    oninput="eAttrCustom.textContent = this.value"
+                    ></input-range>
+            </td>
+            <td id="eAttrCustom">105.936</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input 
+                    type="range"
+                    min="-15" 
+                    max="223.75" 
+                    step="30.234"
+                    value="100"
+                    oninput="eAttrNative.textContent = this.value"
+                    ></input>
+            </td>
+            <td id="eAttrNative">105.936</td>
+        </tr>
+
+    </table>
+
+    <table>
+        <tr>
+            <th colspan="3">it even works transformed</th>
+        </tr>
+        <tr>
+            <td>rotate</td>
+            <td>translateX</td>
+            <td>translateY</td>
+        </tr>
+        <tr>
+            <td id>30º</td>
+            <td id>10px</td>
+            <td id>10px</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 130px;">
+                <input-range class="firefox" style="transform: rotate(30deg) translateX(10px) translateY(10px);"></input-range>
+            </td>
+        </tr>
+
+        <tr>
+            <td>rotate</td>
+            <td>translateX</td>
+            <td>translateY</td>
+        </tr>
+        <tr>
+            <td id>90º</td>
+            <td id>10px</td>
+            <td id>5px</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 190px;">
+                <input-range class="firefox" style="transform: rotate(90deg) translateX(10px) translateY(5px);"></input-range>
+            </td>
+        </tr>
+
+        <tr>
+            <td>rotate</td>
+            <td>translateX</td>
+            <td>translateY</td>
+        </tr>
+        <tr>
+            <td id>120º</td>
+            <td id>10px</td>
+            <td id>5px</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 190px;">
+                <input-range class="firefox" style="transform: rotate(120deg) translateX(10px) translateY(5px);"></input-range>
+            </td>
+        </tr>
+
+        <tr>
+            <td>rotate</td>
+            <td>translateX</td>
+            <td>translateY</td>
+        </tr>
+        <tr>
+            <td id>180º</td>
+            <td id>10px</td>
+            <td id>5px</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <input-range class="firefox" style="transform: rotate(180deg) translateX(10px) translateY(5px);"></input-range>
+            </td>
+        </tr>
+
+        <tr>
+            <td>rotate</td>
+            <td>translateX</td>
+            <td>translateY</td>
+        </tr>
+        <tr>
+            <td id>220º</td>
+            <td id>10px</td>
+            <td id>5px</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 120px;">
+                <input-range class="firefox" style="transform: rotate(220deg) translateX(10px) translateY(5px);"></input-range>
+            </td>
+        </tr>
+
+        <tr>
+            <td>rotate</td>
+            <td>translateX</td>
+            <td>translateY</td>
+        </tr>
+        <tr>
+            <td id>300º</td>
+            <td id>10px</td>
+            <td id>5px</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 140px;">
+                <input-range class="firefox" style="transform: rotate(300deg) translateX(10px) translateY(5px);"></input-range>
+            </td>
+        </tr>
+
+        <tr>
+            <td>rotate</td>
+            <td>scaleX</td>
+            <td>scaleY</td>
+        </tr>
+        <tr>
+            <td id>220º</td>
+            <td id>1.5</td>
+            <td id>2.5</td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 180px;">
+                <input-range class="firefox" style="transform: rotate(220deg) scaleX(1.5) scaleY(2.5);"></input-range>
+            </td>
+        </tr>
+
+    </table>
+
+
+    <a class="anchor-repository" href="https://github.com/erovas/input-range.js">
+        Github repository
+    </a>
+
+    <br><br>
+
+</body>
+</html>
