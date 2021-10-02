@@ -5,7 +5,7 @@ input-range.js is a ES5 custom element, a highly stylizable component with the s
 - Works with all modern browsers from IE11+ (require polyfills, see the source code demo).
 
 ## Dependencies
-- Requiere [ES5customElements.js](https://github.com/erovas/ES5customElements.js)
+- Require [ES5customElements.js](https://github.com/erovas/ES5customElements.js)
 
 ## How to use it?
 
