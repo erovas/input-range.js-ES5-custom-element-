@@ -16,35 +16,17 @@
     <title>input-range.js</title>
 
     <!-- You can find it in https://github.com/erovas/Import.js -->
-    <script src="Import.js"></script>
+    <script src="https://erovas.github.io/Import.js/Import.js"></script>
     
     <script>
 
         if(!!document.documentMode){ //IE
             
             //Polyfill for Event(), you can find it in https://github.com/erovas/Event-constructor-polyfill.js
-            Import.JS(' Event-constructor-polyfill');
+            Import.JS('https://erovas.github.io/Event-constructor-polyfill.js/Event-constructor-polyfill');
 
             //Polyfill for Element.closest(), you can find it in https://developer.mozilla.org/es/docs/Web/API/Element/closest
-            if (!Element.prototype.closest) {
-
-                if (!Element.prototype.matches) 
-                    Element.prototype.matches = Element.prototype.msMatchesSelector || Element.prototype.webkitMatchesSelector;
-
-                Element.prototype.closest = function(s) {
-                    var el = this;
-
-                    do {
-                        if (el.matches(s)) 
-                            return el;
-                        
-                        el = el.parentElement || el.parentNode;
-                    } 
-                    while (el !== null && el.nodeType === 1);
-
-                    return null;
-                };
-            }
+            Import.JS('https://erovas.github.io/useful-JavaScript-functions-/closest-Polyfill');
 
         }
 
@@ -52,26 +34,18 @@
         if(!!window.StyleMedia){
 
             //Polyfill for customElements, you can find it in https://github.com/webcomponents/polyfills/tree/master/packages/webcomponentsjs
-            Import.JS('https://unpkg.com/@webcomponents/custom-elements@1.5.0/custom-elements.min');
+            Import.JS('https://erovas.github.io/useful-JavaScript-functions-/customElements-Polyfill');
 
             // Polyfill for isConnected - Modified from https://gist.github.com/eligrey/f109a6d0bf4efe3461201c3d7b745e8f
-            if (!('isConnected' in Node.prototype)) {
-                Object.defineProperty(Node.prototype, 'isConnected', {
-                    get: function() {
-                        return !this.ownerDocument || !(this.ownerDocument.compareDocumentPosition(this) & this.DOCUMENT_POSITION_DISCONNECTED);
-                    }
-                });
-            }
+            Import.JS('https://erovas.github.io/useful-JavaScript-functions-/isConnected-Polyfill');
 
         }
-
-        
             
         //Dependency, you can find it in https://github.com/erovas/ES5customElements.js
-        Import.JS('ES5customElements');
+        Import.JS('https://erovas.github.io/ES5customElements.js/ES5customElements');
         
         //Component
-        Import.JS('input-range.min');
+        Import.JS('input-range');
         Import.CSS('input-range');
 
         //Another styles for the component
@@ -82,7 +56,7 @@
         Import.CSS('range-iOS');
 
         // For this Demo
-        Import.CSS('normalize.min');
+        Import.CSS('https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min');
         Import.CSS('index');
     </script>
 
@@ -219,8 +193,8 @@
         </tr>
         <tr>
             <td id>-15</td>
-            <td id>223.75</td>
             <td id>30.234</td>
+            <td id>223.75</td>
             <td id>100</td>
         </tr>
         <tr>

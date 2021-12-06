@@ -9,7 +9,7 @@
 
     //#region VARIABLES
 
-    // COnstantes Generales
+    // Constantes Generales
     let TEMPLATE = document.createElement('template');
     let INPUT = 'input';
     let COMPONENT_NAME = INPUT + '-range';
@@ -189,10 +189,15 @@
 
                     e.preventDefault();
 
+                    //Tecla hacia la derecha o hacia arriba
                     if(tempKey > 37 && tempKey < 40)
                         tempKey = that[VALUE] + that[STEP];
+                    //Tecla hacia la izquierda o hacia abajo
                     else
                         tempKey = that[VALUE] - that[STEP];
+
+                    //Por el caso de decimales por ejemplo 1.000000000002 > 1
+                    tempKey = fixedDecimals(tempKey, that[STEP]);
 
                     if(tempKey < that[MIN] || tempKey > that[MAX])
                         return;
@@ -238,7 +243,7 @@
                 //Save <input-thumb> reference
                 that[_referenceThumb] = querySelector(that, INPUT_THUMB);
 
-                //Save <input-fill-lower> reference
+                //Save <input-lower> reference
                 that[_referenceLower] = querySelector(that, INPUT + '-lower');
 
                 if(!that.hasAttribute(TAB_INDEX))
@@ -511,7 +516,7 @@
         if(e.type === MOUSEDOWN){
             _calculatePosition(that, e);
             _setCalculatePosition(that);
-            e.preventDefault();
+            //e.preventDefault();
 
             addEvent(document, MOUSEMOVE, _drogMove);
             addEvent(document, MOUSEUP, _drogEnd);
