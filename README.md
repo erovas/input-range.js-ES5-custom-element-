@@ -14,7 +14,10 @@ Import first ES5customElements.js and then input-range.js JavaScript library whe
 ``` html
 <head>
   <script src="ES5customElements.js"></script>
-  <script src="input-range.js"></script>  
+  <script src="input-range.js"></script>
+  <link href="input-range.css" rel="stylesheet">
+  <!-- OR -->
+  <script src="input-range.bundle.js"></script>
 </head>
 <body>
   <input-range min="-10" step="2" max="200" value="7"></input-range>
@@ -30,7 +33,10 @@ or
   <input-range min="-10" step="2" max="200" value="7"></input-range>
   
   <script src="ES5customElements.js"></script>
-  <script src="input-range.js"></script>  
+  <script src="input-range.js"></script>
+  <link href="input-range.css" rel="stylesheet">
+  <!-- OR -->
+  <script src="input-range.bundle.js"></script>
 </body>
 ```
 
@@ -39,7 +45,10 @@ or
 ``` html
 <head>
   <script src="ES5customElements.js"></script>
-  <script type="module" src="input-range.js"></script>  
+  <script type="module" src="input-range.js"></script>
+  <link href="input-range.css" rel="stylesheet">
+  <!-- OR -->
+  <script type="module" src="input-range.bundle.js"></script>
 </head>
 <body>
   <input-range min="-10" step="2" max="200" value="7"></input-range>
@@ -51,7 +60,10 @@ or
 ``` html
 <head>
   <script src="ES5customElements.js"></script>
-  <script defer src="input-range.js"></script>  
+  <script defer src="input-range.js"></script>
+  <link href="input-range.css" rel="stylesheet">
+  <!-- OR -->
+  <script defer src="input-range.bundle.js"></script>
 </head>
 <body>
   <input-range min="-10" step="2" max="200" value="7"></input-range>
