@@ -440,7 +440,8 @@
         top = rect.top + pageYOffset;
         bottom = rect.bottom + pageYOffset;
 
-        let XoffsetByHeightInput = that[_heightRange] * angleScale.scaleY * Math.cos(Math.PI / 2 - alpha);
+        //let XoffsetByHeightInput = that[_heightRange] * angleScale.scaleY * Math.cos(Math.PI / 2 - alpha);
+        let XoffsetByHeightInput = that[_heightRange] * angleScale.scaleY * Math.sin(alpha);
 
         if(deg === 0 || deg === 360){
             that[_Xp] -= left;
